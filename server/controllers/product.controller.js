@@ -177,4 +177,88 @@ export const getProductByCategoryAndSubCategory = async (request,response) => {
     }
 }
 
+export const  getProductDetails = async (request,response) => {
+    try {
+        const {productId} = request.body
+        const product = await ProductModel.findOne({_id : productId})
+
+        return response.json({
+            message:"product details",
+            data:product,
+            error:false,
+            success:true
+        })
+    } catch (error) {
+        return response.status(500).json({
+            message:error.message || error,
+            error:true,
+            success:false
+        })
+    }
+}
+
+//update Product
+export const updateProductDetails = async(request,response)=>{
+    try {
+        const { _id } = request.body 
+
+        if(!_id){
+            return response.status(400).json({
+                message : "provide product _id",
+                error : true,
+                success : false
+            })
+        }
+
+        const updateProduct = await ProductModel.updateOne({ _id : _id },{
+            ...request.body
+        })
+
+        return response.json({
+            message : "updated successfully",
+            data : updateProduct,
+            error : false,
+            success : true
+        })
+
+    } catch (error) {
+        return response.status(500).json({
+            message : error.message || error,
+            error : true,
+            success : false
+        })
+    }
+}
+
+//delete product
+export const deleteProductDetails = async(request,response) => {
+    try {
+        const { _id } = request.body
+
+        if (!_id) {
+            return response.status(400).json({
+                message : "Provide Id",
+                error:true,
+                success:false
+            })
+        }
+
+        const deleteProduct = await ProductModel.deleteOne({_id : _id})
+
+        return response.json({
+            message:"Deleted Successfully",
+            error:false,
+            success:true,
+            data:deleteProduct
+        })
+        
+    } catch (error) {
+        return response.status(500).json({
+            message:error.message || error,
+            error:true,
+            success:false
+        })
+    }
+}
+
 

@@ -93,6 +93,18 @@ const SummaryApi = {
         url:"/api/product/get-product-by-category-and-subcategory",
         method:"post"
     },
+    getProductDetails : {
+        url:"/api/product/get-product-details",
+        method : "post"
+    },
+    updateProductDetails : {
+        url : "/api/product/update-product-details",
+        method : 'put'
+    },
+    deleteProduct :{ 
+        url:"/api/product/delete-product",
+        method:"delete"
+    }
 
     
 

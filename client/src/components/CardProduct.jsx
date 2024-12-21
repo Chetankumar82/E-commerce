@@ -52,13 +52,14 @@ const CardProduct = ({data}) => {
           
         </div>
         <div className=''>
-              <p className='text-red-500 text-sm text-center'>Out of stock</p>
-          {/* {
+          {
             data.stock == 0 ? (
+              <p className='text-red-500 text-sm text-center'>Out of stock</p>
             ) : (
-              <AddToCartButton data={data} />
+              /* <AddToCartButton data={data} /> */
+              <button className='my-4 px-4 py-1 bg-green-600 hover:bg-green-700 text-white rounded'>Add</button>
             )
-          } */}
+          }
             
         </div>
       </div>

@@ -21,7 +21,6 @@ const ProductListPage = () => {
 
   const subCategory = params?.subCategory?.split("-")
   const subCategoryName = subCategory?.slice(0, subCategory?.length - 1)?.join(" ")
- 
 
   const categoryId = params.category.split("-").slice(-1)[0]
   const subCategoryId = params.subCategory.split("-").slice(-1)[0]
