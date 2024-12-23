@@ -10,10 +10,10 @@ import { setAllCategory,setAllSubCategory,setLoadingCategory } from './store/pro
 import { useDispatch } from 'react-redux';
 import Axios from './utils/Axios';
 import SummaryApi from './common/SummaryApi';
-// import { handleAddItemCart } from './store/cartProduct'
-// import GlobalProvider from './provider/GlobalProvider';
-// import { FaCartShopping } from "react-icons/fa6";
-// import CartMobileLink from './components/CartMobile';
+import { handleAddItemCart } from './store/cartProduct'
+import GlobalProvider from './provider/GlobalProvider';
+import CartMobileLink from './components/CartMobileLink';
+
 
 function App() {
   const dispatch = useDispatch()
@@ -60,6 +60,7 @@ function App() {
   }
 
   
+  
 
   useEffect(()=>{
     fetchUser()
@@ -69,14 +70,16 @@ function App() {
   },[])
 
   return (
-    <>
+    <GlobalProvider>
 
       <Header/>
       <main className='min-h-[78vh]'>
           <Outlet/>
       </main>
       <Footer/>
-    </>
+      <Toaster/>    
+        <CartMobileLink/>
+    </GlobalProvider>
   )
 }
 

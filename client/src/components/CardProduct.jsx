@@ -8,8 +8,8 @@ import AxiosToastError from '../utils/AxiosToastError'
 import Axios from '../utils/Axios'
 import toast from 'react-hot-toast'
 import { useState } from 'react'
-// import { useGlobalContext } from '../provider/GlobalProvider'
-// import AddToCartButton from './AddToCartButton'
+import { useGlobalContext } from '../provider/GlobalProvider'
+import AddToCartButton from './AddToCartButton'
 
 const CardProduct = ({data}) => {
     const url = `/product/${validURLConvert(data.name)}-${data._id}`
@@ -56,8 +56,8 @@ const CardProduct = ({data}) => {
             data.stock == 0 ? (
               <p className='text-red-500 text-sm text-center'>Out of stock</p>
             ) : (
-              /* <AddToCartButton data={data} /> */
-              <button className='my-4 px-4 py-1 bg-green-600 hover:bg-green-700 text-white rounded'>Add</button>
+              <AddToCartButton data={data} /> 
+              
             )
           }
             
