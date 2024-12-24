@@ -78,7 +78,11 @@ function App() {
       </main>
       <Footer/>
       <Toaster/>    
+      {
+        location.pathname !== '/checkout' && (
         <CartMobileLink/>
+        )
+      }
     </GlobalProvider>
   )
 }

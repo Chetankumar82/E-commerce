@@ -6,7 +6,7 @@ import { handleAddItemCart } from "../store/cartProduct";
 import AxiosToastError from "../utils/AxiosToastError";
 import toast from "react-hot-toast";
 import { pricewithDiscount } from "../utils/PriceWithDiscount";
-// import { handleAddAddress } from "../store/addressSlice";
+import { handleAddAddress } from "../store/addressSlice";
 // import { setOrder } from "../store/orderSlice";
 
 export const GlobalContext = createContext(null)
@@ -97,25 +97,25 @@ const GlobalProvider = ({children}) => {
       setNotDiscountTotalPrice(notDiscountPrice)
   },[cartItem])
 
-    // const handleLogoutOut = ()=>{
-    //     localStorage.clear()
-    //     dispatch(handleAddItemCart([]))
-    // }
+    const handleLogoutOut = ()=>{
+        localStorage.clear()
+        dispatch(handleAddItemCart([]))
+    }
 
-    // const fetchAddress = async()=>{
-    //   try {
-    //     const response = await Axios({
-    //       ...SummaryApi.getAddress
-    //     })
-    //     const { data : responseData } = response
+    const fetchAddress = async()=>{
+      try {
+        const response = await Axios({
+          ...SummaryApi.getAddress
+        })
+        const { data : responseData } = response
 
-    //     if(responseData.success){
-    //       dispatch(handleAddAddress(responseData.data))
-    //     }
-    //   } catch (error) {
-    //       // AxiosToastError(error)
-    //   }
-    // }
+        if(responseData.success){
+          dispatch(handleAddAddress(responseData.data))
+        }
+      } catch (error) {
+          AxiosToastError(error)
+      }
+    }
     // const fetchOrder = async()=>{
     //   try {
     //     const response = await Axios({
@@ -133,8 +133,8 @@ const GlobalProvider = ({children}) => {
 
     useEffect(()=>{
       fetchCartItem()
-      // handleLogoutOut()
-      // fetchAddress()
+      handleLogoutOut()
+      fetchAddress()
       // fetchOrder()
     },[user])
     
@@ -143,7 +143,7 @@ const GlobalProvider = ({children}) => {
             fetchCartItem,
             updateCartItem,
             deleteCartItem,
-            // fetchAddress,
+            fetchAddress,
             totalPrice,
             totalQty,
             notDiscountTotalPrice,
