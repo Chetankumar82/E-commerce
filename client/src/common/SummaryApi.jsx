@@ -1,3 +1,4 @@
+
 export const baseURL = "http://localhost:8080"
 
 const SummaryApi = {
@@ -140,6 +141,18 @@ const SummaryApi = {
     disableAddress : {
         url : '/api/address/disable',
         method : 'delete'
+    },
+    CashOnDeliveryOrder : {
+        url : "/api/order/cash-on-delivery",
+        method : 'post'
+    },
+    payment_url : {
+        url : "/api/order/checkout",
+        method : 'post'
+    },
+    getOrderItems : {
+        url : '/api/order/order-list',
+        method : 'get'
     }
 }
 
