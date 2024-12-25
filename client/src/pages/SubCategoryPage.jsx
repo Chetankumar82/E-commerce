@@ -10,7 +10,7 @@ import { LuPencil } from "react-icons/lu";
 import { MdDelete  } from "react-icons/md";
 import { HiPencil } from "react-icons/hi";
 import EditSubCategory from '../components/EditSubCategory'
-import ConfirmBox from '../components/ConfirmBox'
+import CofirmBox from '../components/CofirmBox'
 import toast from 'react-hot-toast'
 
 const SubCategoryPage = () => {
@@ -169,7 +169,7 @@ const SubCategoryPage = () => {
 
         {
           openDeleteConfirmBox && (
-            <ConfirmBox 
+            <CofirmBox 
               cancel={()=>setOpenDeleteConfirmBox(false)}
               close={()=>setOpenDeleteConfirmBox(false)}
               confirm={handleDeleteSubCategory}

@@ -155,7 +155,7 @@ const Header = () => {
 
         {
             openCartSection && (
-                 <DisplayCartItem close={()=>setOpenCartSection(false)}/> 
+                <DisplayCartItem close={()=>setOpenCartSection(false)}/>
             )
         }
     </header>

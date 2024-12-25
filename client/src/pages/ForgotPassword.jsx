@@ -6,13 +6,10 @@ import Axios from '../utils/Axios';
 import SummaryApi from '../common/SummaryApi';
 import AxiosToastError from '../utils/AxiosToastError';
 import { Link, useNavigate } from 'react-router-dom';
-// import fetchUserDetails from '../utils/fetchUserDetails';
-// import { useDispatch } from 'react-redux';
-// import { setUserDetails } from '../store/userSlice';
 
 const ForgotPassword = () => {
     const [data, setData] = useState({
-        email: ""
+        email: "",
     })
     const navigate = useNavigate()
 
@@ -45,14 +42,13 @@ const ForgotPassword = () => {
 
             if(response.data.success){
                 toast.success(response.data.message)
-                
-                
                 navigate("/verification-otp",{
-                    state:data
+                  state : data
                 })
                 setData({
-                    email : ""
+                    email : "",
                 })
+                
             }
 
         } catch (error) {
@@ -62,11 +58,11 @@ const ForgotPassword = () => {
 
 
     }
+
     return (
         <section className='w-full container mx-auto px-2'>
             <div className='bg-white my-4 w-full max-w-lg mx-auto rounded p-7'>
-            <p className='font-semibold text-lg '>Forgot Password</p>
-
+                <p className='font-semibold text-lg'>Forgot Password </p>
                 <form className='grid gap-4 py-4' onSubmit={handleSubmit}>
                     <div className='grid gap-1'>
                         <label htmlFor='email'>Email :</label>
@@ -80,13 +76,13 @@ const ForgotPassword = () => {
                             placeholder='Enter your email'
                         />
                     </div>
-                    
-                    <button disabled={!valideValue} className={` ${valideValue ? "bg-green-800 hover:bg-green-700" : "bg-gray-500" }    text-white py-2 rounded font-semibold my-3 tracking-wide`}>Login</button>
+             
+                    <button disabled={!valideValue} className={` ${valideValue ? "bg-green-800 hover:bg-green-700" : "bg-gray-500" }    text-white py-2 rounded font-semibold my-3 tracking-wide`}>Send Otp</button>
 
                 </form>
 
                 <p>
-                    Already have account? <Link to={"/login"} className='font-semibold text-green-700 hover:text-green-800'>Send Otp</Link>
+                    Already have account? <Link to={"/login"} className='font-semibold text-green-700 hover:text-green-800'>Login</Link>
                 </p>
             </div>
         </section>
@@ -94,3 +90,5 @@ const ForgotPassword = () => {
 }
 
 export default ForgotPassword
+
+

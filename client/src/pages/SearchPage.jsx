@@ -55,7 +55,7 @@ const SearchPage = () => {
     fetchData()
   },[page,searchText])
 
-  
+  console.log("page",page)
 
   const handleFetchMore = ()=>{
     if(totalPage > page){

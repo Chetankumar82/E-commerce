@@ -86,7 +86,6 @@ const Address = () => {
         {
           OpenEdit && (
             <EditAddressDetails data={editData} close={()=>setOpenEdit(false)}/>
-            
           )
         }
     </div>

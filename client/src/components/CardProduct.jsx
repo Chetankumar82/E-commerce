@@ -1,7 +1,7 @@
 import React from 'react'
 import { DisplayPriceInRupees } from '../utils/DisplayPriceInRupees'
 import { Link } from 'react-router-dom'
-import { validURLConvert } from '../utils/validURLConvert'
+import { valideURLConvert } from '../utils/valideURLConvert'
 import { pricewithDiscount } from '../utils/PriceWithDiscount'
 import SummaryApi from '../common/SummaryApi'
 import AxiosToastError from '../utils/AxiosToastError'
@@ -12,7 +12,7 @@ import { useGlobalContext } from '../provider/GlobalProvider'
 import AddToCartButton from './AddToCartButton'
 
 const CardProduct = ({data}) => {
-    const url = `/product/${validURLConvert(data.name)}-${data._id}`
+    const url = `/product/${valideURLConvert(data.name)}-${data._id}`
     const [loading,setLoading] = useState(false)
   
   return (
@@ -56,8 +56,7 @@ const CardProduct = ({data}) => {
             data.stock == 0 ? (
               <p className='text-red-500 text-sm text-center'>Out of stock</p>
             ) : (
-              <AddToCartButton data={data} /> 
-              
+              <AddToCartButton data={data} />
             )
           }
             

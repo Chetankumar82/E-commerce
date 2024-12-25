@@ -6,7 +6,7 @@ import AxiosToastError from '../utils/AxiosToastError'
 import Loading from '../components/Loading'
 import CardProduct from '../components/CardProduct'
 import { useSelector } from 'react-redux'
-import { validURLConvert } from '../utils/validURLConvert'
+import { valideURLConvert } from '../utils/valideURLConvert'
 
 const ProductListPage = () => {
   const [data, setData] = useState([])
@@ -79,7 +79,7 @@ const ProductListPage = () => {
         <div className=' min-h-[88vh] max-h-[88vh] overflow-y-scroll  grid gap-1 shadow-md scrollbarCustom bg-white py-2'>
           {
             DisplaySubCatory.map((s, index) => {
-               const link = `/${validURLConvert(s?.category[0]?.name)}-${s?.category[0]?._id}/${validURLConvert(s.name)}-${s._id}`
+               const link = `/${valideURLConvert(s?.category[0]?.name)}-${s?.category[0]?._id}/${valideURLConvert(s.name)}-${s._id}`
               return (
                 <Link to={link} className={`w-full p-2 lg:flex items-center lg:w-full lg:h-16 box-border lg:gap-4 border-b 
                   hover:bg-green-100 cursor-pointer

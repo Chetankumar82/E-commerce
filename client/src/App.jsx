@@ -12,8 +12,8 @@ import Axios from './utils/Axios';
 import SummaryApi from './common/SummaryApi';
 import { handleAddItemCart } from './store/cartProduct'
 import GlobalProvider from './provider/GlobalProvider';
-import CartMobileLink from './components/CartMobileLink';
-
+import { FaCartShopping } from "react-icons/fa6";
+import CartMobileLink from './components/CartMobile';
 
 function App() {
   const dispatch = useDispatch()
@@ -60,7 +60,6 @@ function App() {
   }
 
   
-  
 
   useEffect(()=>{
     fetchUser()
@@ -70,17 +69,16 @@ function App() {
   },[])
 
   return (
-    <GlobalProvider>
-
+    <GlobalProvider> 
       <Header/>
       <main className='min-h-[78vh]'>
           <Outlet/>
       </main>
       <Footer/>
-      <Toaster/>    
+      <Toaster/>
       {
         location.pathname !== '/checkout' && (
-        <CartMobileLink/>
+          <CartMobileLink/>
         )
       }
     </GlobalProvider>

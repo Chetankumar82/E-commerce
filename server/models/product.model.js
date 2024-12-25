@@ -61,11 +61,6 @@ productSchema.index({
     description : 5
 })
 
-// Ensure indexes are created
-productSchema.on("index", (err) => {
-    if (err) console.error("Index creation error:", err);
-});
-
 
 const ProductModel = mongoose.model('product',productSchema)
 

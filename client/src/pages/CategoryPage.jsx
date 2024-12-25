@@ -5,7 +5,7 @@ import NoData from '../components/NoData'
 import Axios from '../utils/Axios'
 import SummaryApi from '../common/SummaryApi'
 import EditCategory from '../components/EditCategory'
-import ConfirmBox from '../components/ConfirmBox'
+import CofirmBox from '../components/CofirmBox'
 import toast from 'react-hot-toast'
 import AxiosToastError from '../utils/AxiosToastError'
 import { useSelector } from 'react-redux'
@@ -19,7 +19,7 @@ const CategoryPage = () => {
         name : "",
         image : "",
     })
-    const [openConfirmBoxDelete,setOpenConfirmBoxDelete] = useState(false)
+    const [openConfimBoxDelete,setOpenConfirmBoxDelete] = useState(false)
     const [deleteCategory,setDeleteCategory] = useState({
         _id : ""
     })
@@ -132,8 +132,8 @@ const CategoryPage = () => {
         }
 
         {
-           openConfirmBoxDelete && (
-            <ConfirmBox close={()=>setOpenConfirmBoxDelete(false)} cancel={()=>setOpenConfirmBoxDelete(false)} confirm={handleDeleteCategory}/>
+           openConfimBoxDelete && (
+            <CofirmBox close={()=>setOpenConfirmBoxDelete(false)} cancel={()=>setOpenConfirmBoxDelete(false)} confirm={handleDeleteCategory}/>
            ) 
         }
     </section>

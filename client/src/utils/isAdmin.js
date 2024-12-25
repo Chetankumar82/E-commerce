@@ -1,5 +1,5 @@
 const isAdmin = (s)=>{
-    if (s === "ADMIN") {
+    if(s === 'ADMIN'){
         return true
     }
 
